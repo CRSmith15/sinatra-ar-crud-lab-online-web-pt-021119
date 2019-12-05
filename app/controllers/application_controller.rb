@@ -19,7 +19,13 @@ get '/articles' do
 
   post '/articles' do 
     Article.create(title: params[:title], content: params[:content])
+<<<<<<< HEAD
     redirect "/articles/#{Article.last.id}"
+=======
+    @article = Article.find(params[:id])
+    @article.update(title: params[:title], content: params[:content])
+    redirect "/articles/#{@article(params[:id])}"
+>>>>>>> df5df8b2a26dc7e389cdf7e9d86eb87b65ae5b51
   end
 
   get '/articles/:id' do 
